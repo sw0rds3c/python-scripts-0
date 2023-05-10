@@ -1,0 +1,65 @@
+### By Mike Sword -- APCV320 -- UofA -- 05/08/2022 -- Final Project
+### >> Reading specific lines from a text file "amazonReport.txt" to pull Order ID, UNSPSC Code, and Price <<
+### This can be made a lot better (to work under more circumstances/different formatting), but it works for the use case
+
+class generateReport:
+  def __init__(self, file1, file2):
+    self.file1 = file1
+    self.file2 = file2
+
+  def generateRep(self):
+    #first need to open the text document, read lines into list, then close the file
+    lines = []
+    with open(self.file1, "r") as f1:
+      lines = f1.read()
+    f1.close()
+    # print(lines, "\n _________________")
+
+    #then need to split up each entry in list
+    list0 = []
+    for line in lines:
+      list0 = lines.split("\n")
+    #print("list0: \n", list0, "\n _________________")
+
+    #then need to grab every Order ID, UNSPSC Code, and Price
+    list1 = []
+    for elements in list0:
+      if "Order ID:" in elements:
+        list1.append(elements.strip("Order ID:"))
+      if "UNSPSC Code:" in elements:
+        list1.append(elements.strip("UNSPSC Code:"))
+      if "Price:" in elements:
+        list1.append(elements.strip("Price: "))
+      #print(list1, "\n")
+
+    #then need to seperate the entries by line, every 3 entries till 33 (for formatting)(11 total strings to make)
+    #could also do w/ a loop.. this is the lazy way..
+    string1 = str(list1[0:3])
+    string2 = str(list1[3:6])
+    string3 = str(list1[6:9])
+    string4 = str(list1[9:12])
+    string5 = str(list1[12:15])
+    string6 = str(list1[15:18])
+    string7 = str(list1[18:21])
+    string8 = str(list1[21:24])
+    string9 = str(list1[24:27])
+    string10 = str(list1[27:30])
+    string11 = str(list1[30:33])
+    string0 = string1 + "\n" + string2 + "\n" + string3 + "\n" + string4 + "\n" + string5 + "\n" + string6 + "\n" + string7 + "\n" + string8+ "\n" + string9 + "\n" + string10 + "\n" + string11
+    # print(string0)
+
+    #now need to add in the header
+    list2 = "   ---- Cleaned Amazon Report ---- \n\n\n|  OrderID   | UNSPSC Code |  Price | \n\n"
+    newString = list2 + string0
+    print(newString)
+
+    #now need to dump the newString into an output file named "AmazonCleanReport.txt"
+    with open(self.file2, "w") as f2:
+        f2.write(newString)
+    f2.close()
+    return print("\nProcess Complete! \nPlease check the output file named 'AmazonCleanReport'")
+
+### __MAIN__
+###
+new = generateReport("amazonReport.txt","AmazonCleanReport.txt")
+new.generateRep()
