@@ -1,0 +1,26 @@
+'''Mike Sword -- 03/20/22'''
+
+#function for stripping specific words from a text file
+def strip():
+  
+  file1 = open("inputFile.txt",'r') #opens target file
+  lines = file1.readlines() #creates list of file elements
+  file1.close() #closes the file as its not needed anymore
+
+  new_lines = [] #creates new list for storing copy with the chosen word removed
+
+  for line in lines:
+    new_lines.append(' '.join([word for word in line.split() if word != excludedWord])) #adds in everything except the chosen word from the old list to the new list
+
+  file2 = open("outputFile.txt", 'w') #opens new file to write the new list to
+
+  for line in new_lines:
+    file2.write("{}\n".format(line)) #formatting for new line
+
+  file2.close() #closes file
+
+#__main__
+
+excludedWord = input("Word to delete all occurences of:\n----> : ")
+strip()
+print("All occurences of '" + excludedWord + "' have been removed from 'inputFile.txt' and a new copy without the words is within outputFile.txt")
