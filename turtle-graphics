@@ -1,0 +1,68 @@
+import turtle
+
+wn = turtle.Screen()
+wn.bgcolor("black")
+
+teddy = turtle.Turtle()
+teddy.fillcolor("turquoise")
+teddy.pencolor("yellow")
+teddy.shape("turtle")
+
+tess = turtle.Turtle()
+tess.fillcolor("cyan")
+tess.pencolor("green")
+tess.shape("turtle")
+
+# print number of moves and distance iterations
+print("Teddy and Tess will be moving", len(list(range(10, 101, 2))), "times")
+print("Each move the distances will be:\n", list(range(10, 101, 2)))
+
+# initial placement/starting points
+teddy.goto(-30,-10)
+tess.goto(30,-10)
+
+# turtle speed
+teddy.speed(20)
+tess.speed(10)
+
+# main loop for movement
+# start with size = 10 and grow by 2 till 100
+for size in range(10, 101, 2):
+    
+    teddy.up()
+    tess.up()
+    
+    teddy.stamp() # leave an impression on the canvas for teddy
+    tess.stamp() # leave an impression on the canvas for tess
+    teddy.forward(size) # move teddy along
+    tess.forward(size) # move tess along
+    
+    teddy.down()
+    tess.down()
+    
+    teddy.right(150) # and turn teddy
+    tess.right(150) # and turn tess
+    teddy.forward(size) # move teddy along
+    tess.forward(size) # move tess along
+    
+    teddy.up()
+    tess.up()
+    
+    teddy.right(90) # and turn teddy
+    tess.right(90) # and turn tess
+    teddy.forward(size) # move teddy along
+    tess.forward(size) # move tess along
+    
+    teddy.down()
+    tess.down()
+    
+    teddy.right(90) # and turn teddy
+    tess.right(90) # and turn tess
+    teddy.forward(size) # move teddy along
+    tess.forward(size) # move tess along
+    
+# turn into shapes after done to see where they ended
+tess.shape("square")
+teddy.shape("circle")
+
+wn.exitonclick()
