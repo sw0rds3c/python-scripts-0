@@ -1,0 +1,107 @@
+import random as rndm
+
+class Car():
+  #constructor
+  def __init__(self, make, model, year, mileage, color, engineType, fuelType, milesPerGallon, fuelAmount):
+    self.make = make
+    self.model = model
+    self.year = year
+    self.mileage = mileage
+    self.color = color
+    self.engine = engineType
+    self.fuel = fuelType
+    self.milesPerGallon = milesPerGallon
+    self.fuelAmount = fuelAmount
+  #returns string of the car's info, so can print the cars info and not have it come back as some offset
+  def __str__(self):
+    return f'Make: {self.make}\n Model: {self.model}\n Year: {self.year}\n Mileage: {self.mileage}\n Color: {self.color}\n EngineType: {self.engine}\n FuelType: {self.fuel}\n MilesPerGallon: {self.milesPerGallon}\n FuelAmount: {self.fuelAmount}'
+  #painting the car randomly
+  def carPaint(self):
+    #will change to a color that is within the following list
+    color_choice = ["red", "orange", "yellow", "green", "blue", "indigo", "violet", "cyan", "brown", "pink", "grey", "black", "white", "beige"]
+    #using random module
+    newPaint = rndm.choice(color_choice)
+    print("The",self.make, self.model, "is now", newPaint, "!!!\n\n")
+    self.color = newPaint
+  #will choose a random mileage from 10,000 to 100,000 using random module
+  def randomMileage(self):
+    self.mileage = rndm.uniform(10000,100000)
+  #allows user to change their mileage
+  def newMileage(self):
+    self.mileage = input("New mileage:\n\n")
+  #calculating max miles that can be driven with current stats of mpg and fuel level
+  def potentialMiles(self):
+    potential_miles = self.milesPerGallon * self.fuelAmount
+    return potential_miles
+  #method for filling the tank to 20 gallons
+  def fillFuelTank(self):
+    self.fuelAmount = 20
+    print("Your tank was topped to 20 Gallons!!!")
+  
+
+### __main__
+#set cars
+car1 = Car("Ferrari", "360 Modena", "2006", float(10000), "red", "v8", "gas", 12, 10)
+car2 = Car("Bugatti", "Veyron", "2010", float(10000), "blue", "w16", "gas", 10, 15)
+car3 = Car("Hummer", "H1 Alpha", "2002", float(10000), "black", "inline 6", "diesel", 18, 20)
+
+#show cars
+print(
+    "Car1:\n\n", car1, "\n-----------------\n\n", 
+    "Car2:\n\n", car2, "\n-----------------\n\n", 
+    "Car3:\n\n", car3, "\n-----------------\n\n"
+     )
+
+#paint cars
+car1.carPaint()
+car2.carPaint()
+car3.carPaint()
+
+#pick a random mileage from 10,000 to 100,000 miles
+car1.randomMileage()
+car2.randomMileage()
+car3.randomMileage()
+
+#show the available miles that can be driven based on the milesPerGallon and fuelAmount
+print("Using current mpg and fuel amount, here are the potential miles able to be driven by each car -----> ")
+print("\nCar1:", car1.potentialMiles(), "Miles\n")
+print("\nCar2:", car2.potentialMiles(), "Miles\n")
+print("\nCar3:", car3.potentialMiles(), "Miles\n")
+
+#show cars again to see that stuff worked
+print(
+    "Car1:\n\n", car1, "\n-----------------\n\n", 
+    "Car2:\n\n", car2, "\n-----------------\n\n", 
+    "Car3:\n\n", car3, "\n-----------------\n\n"
+     )
+
+#fill-up gas tank
+car1.fillFuelTank()
+car2.fillFuelTank()
+car3.fillFuelTank()
+
+
+#show cars again to see that stuff worked
+print(
+    "Car1:\n\n", car1, "\n-----------------\n\n", 
+    "Car2:\n\n", car2, "\n-----------------\n\n", 
+    "Car3:\n\n", car3, "\n-----------------\n\n"
+     )
+
+#check for above
+#reprint the available miles that can be driven based on the milesPerGallon and fuelAmount
+print("Using current mpg and fuel amount, here are the potential miles able to be driven by each car -----> ")
+print("\nCar1:", car1.potentialMiles(), "Miles\n")
+print("\nCar2:", car2.potentialMiles(), "Miles\n")
+print("\nCar3:", car3.potentialMiles(), "Miles\n")
+
+#changing mileage with user input
+car1.newMileage()
+car2.newMileage()
+car3.newMileage()
+
+print(
+    "Car1:\n\n", car1, "\n-----------------\n\n", 
+    "Car2:\n\n", car2, "\n-----------------\n\n", 
+    "Car3:\n\n", car3, "\n-----------------\n\n"
+     )
