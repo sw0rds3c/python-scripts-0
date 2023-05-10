@@ -1,0 +1,50 @@
+'Mike Sword -- 03/20/22'
+
+#addition function
+def add(matrix_a, matrix_b):
+   new_list = []
+   for i in range(0, len(matrix_a)):
+      new_list.append(matrix_a[i] + matrix_b[i])
+   return new_list
+
+#subtraction function
+def subtract(matrix_a, matrix_b):
+   new_list = []
+   for i in range(0, len(matrix_a)):
+      new_list.append(matrix_a[i] - matrix_b[i])
+   return new_list
+
+# __main__
+# prompt user for matrix dimensions and values
+
+print("Please enter the dimensions for the matrices, one number at a time. [Example: 2 x 2]")
+
+dimension_a = int(input("# of rows: "))
+dimension_b = int(input("# of elements per row: "))
+
+print("Now, what number would you like to populate the matrices with?")
+print("Please enter only one number for now")
+
+user_chosen_elements_a = int(input("Number for matrix A:"))
+user_chosen_elements_b = int(input("Number for matrix B: "))
+
+#now take user selected inputs and create the matrices to do operations with
+
+matrix_a = [[user_chosen_elements_a for x in range(dimension_a)]for x in range(dimension_b)]
+matrix_b = [[user_chosen_elements_b for x in range(dimension_a)]for x in range(dimension_b)]
+matrix_c = []
+
+#appends added values to the new matrix
+
+for i in range(0, len(matrix_a)):
+   matrix_c.append(add(matrix_a[i], matrix_b[i]))
+print("Added Matrices:")
+print(matrix_c)
+
+#appends subtracted values to the new matrix
+
+matrix_c = []
+for i in range(0, len(matrix_a)):
+   matrix_c.append(subtract(matrix_a[i], matrix_b[i]))
+print("Subtracted Matrices:")
+print(matrix_c)
