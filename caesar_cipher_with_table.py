@@ -1,4 +1,3 @@
-''' Mike Sword -- 02/22/2022 '''
 # Caesar Cipher -- Encryption and Decryption functions 
 # w/ testing & visualization tables
 
