@@ -1,6 +1,4 @@
-''' Mike Sword -- 02/22/2022 '''
 #Generating a Fibonacci sequence using simple recursion
-
 def fibonacciGenerator(num):
     if(num==0):
         return 0
