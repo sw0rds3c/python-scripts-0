@@ -1,4 +1,4 @@
-''' SIMPLE CALCULATOR by Mike S. -- 02/11/2022'''
+''' SIMPLE CALCULATOR'''
 
 # adding two numbers
 def add(x, y):
