@@ -1,6 +1,4 @@
-''' Mike Sword -- 02/22/2022 '''
-#funtion to reverse a list using slicing instead of the built-in reverse() function.
-
+#reverse a list using slicing instead of the built-in reverse() function.
 def reverseList(inputList):
 
    reversedList = inputList[::-1]
